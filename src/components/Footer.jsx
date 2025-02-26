@@ -1,7 +1,41 @@
-import React from "react";
 import { motion } from "framer-motion";
+import emailjs from '@emailjs/browser';
+import React, { useRef,useState } from 'react';
+
 
 const Footer = () => {
+    const form = useRef();
+    const service_id = import.meta.env.VITE_SERVICE_ID
+    const template_id = import.meta.env.VITE_TEMPLATE_ID
+    const public_id = import.meta.env.VITE_PUBLIC_ID
+    const [alert, setAlert] = useState(null);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(service_id, template_id, form.current, {
+        publicKey: public_id,
+      })
+      .then(
+        () => {
+            setAlert({ type: "success", message: "Message sent successfully!" });
+  
+            // Hide alert after 3 seconds
+            setTimeout(() => {
+              setAlert(null);
+            }, 3000);
+          },
+        (error) => {
+            setAlert({ type: "danger", message: "Failed to send message!" });
+
+            // Hide alert after 3 seconds
+            setTimeout(() => {
+              setAlert(null);
+            }, 3000);
+        },
+      );
+  };
     return (
         <motion.footer
             className="site-footer mt-auto py-5"
@@ -16,7 +50,24 @@ const Footer = () => {
                 borderRadius: "20px", // Rounded corners for a cartoonish feel
             }}
         >
+            
             <div className="container">
+            {alert && (
+        <div
+          className={`alert alert-${alert.type} text-center fade show`}
+          role="alert"
+          style={{
+            position: "fixed",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            minWidth: "300px",
+            zIndex: 9999,
+          }}
+        >
+          {alert.message}
+        </div>
+      )}
                 <div className="row align-items-center">
                     {/* Left Section - Contact Info */}
                     <div className="col-lg-6 site-footer__left text-center text-lg-start mb-4 mb-lg-0">
@@ -66,18 +117,18 @@ const Footer = () => {
                             <motion.h2 className="text-center mb-3 fw-bold text-danger" whileHover={{ scale: 1.1 }}>
                                 Contact Us
                             </motion.h2>
-                            <form action="https://formspree.io/f/your-form-id?_next=https://yourwebsite.com/thank-you" method="POST">
+                            <form ref={form} onSubmit={sendEmail}>
                                 <div className="mb-3">
-                                    <label htmlFor="fullName" className="fw-bold text-danger" style={{ fontSize: "1.1rem" }}>
+                                    <label className="fw-bold text-danger" style={{ fontSize: "1.1rem" }}>
                                         <i className="bi bi-person-fill me-2"></i> Full Name
                                     </label>
-                                    <input type="text" className="form-control" id="fullName" name="fullName" placeholder="Enter your full name" required />
+                                    <input type="text" className="form-control" id="fullName" name="user_name" placeholder="Enter your full name" required />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="email" className="fw-bold text-danger" style={{ fontSize: "1.1rem" }}>
+                                    <label className="fw-bold text-danger" style={{ fontSize: "1.1rem" }}>
                                         <i className="bi bi-envelope-fill me-2"></i> Email Address
                                     </label>
-                                    <input type="email" className="form-control" id="email" name="email" placeholder="Enter your email" required />
+                                    <input type="email" className="form-control" id="email" name="user_email" placeholder="Enter your email" required />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="message" className="fw-bold text-danger" style={{ fontSize: "1.1rem" }}>
@@ -85,7 +136,7 @@ const Footer = () => {
                                     </label>
                                     <textarea className="form-control" id="message" name="message" rows="3" placeholder="Your message" required></textarea>
                                 </div>
-                                <motion.button type="submit" className="btn btn-danger w-100 fw-bold" whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+                                <motion.button type="submit" value = "Submit" className="btn btn-danger w-100 fw-bold" whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
                                     Submit Form
                                 </motion.button>
                             </form>
