@@ -1,0 +1,550 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: #333;
+  font-family: "Patrick Hand", cursive;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+ul li,
+p {
+  font-size: 1.2rem;
+}
+
+/* Example CSS for mobile responsiveness */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none !important; /* Hide nav links on small screens */
+  }
+  .hamburger-menu {
+    display: block; /* Show hamburger icon on small screens */
+  }
+}
+
+/* Mobile view: Hamburger menu */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none !important; /* Hide desktop navigation */
+  }
+
+  .mobile-menu-icon {
+    display: block !important; /* Show hamburger icon */
+  }
+
+  .mobile-nav {
+    display: block; /* Show mobile navigation when menu is open */
+  }
+  h1 {
+    font-size: 0.8rem;
+  }
+}
+
+/* Hero Section */
+/* Cartoon Background */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background: linear-gradient(
+    135deg,
+    #2c3e50,
+    #34495e
+  ); /* Cartoon-style gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Canvas for Stars */
+#particleCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Cartoon Style Text */
+.hero-title {
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 4px 4px 0px #ff4500, 8px 8px 0px #ffd700; /* Comic book text shadow */
+  color: white;
+  z-index: 1;
+}
+
+/* Animated Text */
+.animated-text {
+  color: #ffd700;
+  text-shadow: 3px 3px 0px #000, 5px 5px 0px #ff4500;
+}
+
+/* Cartoon Button */
+.cartoon-btn {
+  background: #ff4500;
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.5rem;
+  border-radius: 50px;
+  border: 3px solid white;
+  box-shadow: 4px 4px 0px #000, 8px 8px 0px #ffd700;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.cartoon-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 2px 0px #000, 6px 6px 0px #ffd700;
+}
+
+/* Responsive adjustments for About section */
+@media (max-width: 768px) {
+  .about-section .row {
+    flex-direction: column-reverse; /* Stacks the image and content vertically */
+    text-align: center;
+  }
+
+  .about-section .col-md-6 {
+    width: 100%;
+  }
+
+  .cartoon-title {
+    font-size: 2rem;
+  }
+
+  .about-section p {
+    font-size: 1rem;
+    padding: 0 15px;
+  }
+
+  .cartoon-image-container {
+    margin-bottom: 20px;
+  }
+}
+
+/* For very small screens (smaller than 576px) */
+@media (max-width: 576px) {
+  .about-section .cartoon-title {
+    font-size: 1.8rem;
+  }
+
+  .about-section p {
+    font-size: 0.95rem;
+  }
+
+  .cartoon-image {
+    width: 80%;
+  }
+}
+
+#about {
+  background: #faebd7;
+}
+
+.about-section {
+  background: #f9f9f9;
+  padding: 80px 0;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.about-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-image {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+
+/* Container styling */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Title Styling */
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Image container and styling */
+.cartoon-image-container {
+  text-align: center;
+}
+
+.cartoon-image-container img {
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .col-lg-6 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .cartoon-image-container img {
+    width: 150px;
+    height: 150px;
+  }
+}
+ 
+
+/* Service Display Section */
+.service-display-section {
+  position: relative;
+  padding: 50px 0;
+  background: linear-gradient(
+    135deg,
+    #ff9a9e,
+    #fad0c4
+  ); /* Cartoon-style gradient */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.2); */
+  z-index: 1;
+}
+
+.service-box-single-item {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1),
+    10px 10px 0px rgba(255, 173, 96, 0.5);
+  transition: all 0.3s ease;
+}
+
+.service-box-single-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.service-box-single-item .icon {
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.service-box-single-item .title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.list-item li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.list-item li i {
+  margin-right: 10px;
+  color: #28a745;
+}
+
+/* Ensure the service-box items are responsive */
+.service-box-single-item {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.1),
+    10px 10px 0px rgba(255, 173, 96, 0.5);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+/* Adjust the icon size for smaller screens */
+.service-box-single-item .icon i {
+  font-size: 3rem; /* Default icon size */
+}
+
+.service-display-wrapper {
+  padding: 50px 0; /* Add spacing around the service display */
+}
+
+/* SkillDisplay.css */
+
+.skill-box {
+  margin: 15px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f4f4f4;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* For screens smaller than 768px (Tablets, Small Devices) */
+@media (max-width: 768px) {
+  /* Stacking the service boxes vertically */
+  .service-display-wrapper .row {
+    display: flex;
+    flex-direction: column; /* Stack the services vertically */
+    align-items: center;
+  }
+
+  .service-display-wrapper .col-lg-3 {
+    width: 100%; /* Full width for smaller screens */
+    margin-bottom: 20px; /* Add spacing between items */
+  }
+
+  /* Make the text and heading smaller */
+  .service-display-section h2 {
+    font-size: 1.8rem; /* Decrease heading size */
+  }
+
+  .service-display-section p {
+    font-size: 1rem; /* Adjust paragraph size */
+    padding: 0 20px;
+  }
+
+  /* Reduce the size of the icons */
+  .service-box-single-item .icon i {
+    font-size: 2.5rem; /* Smaller icons for mobile */
+  }
+
+  /* Reduce padding in service boxes */
+  .service-box-single-item {
+    padding: 15px;
+  }
+
+  /* Increase spacing between items */
+  .service-display-section {
+    padding: 20px;
+  }
+}
+
+/* For very small screens (like phones) */
+@media (max-width: 576px) {
+  .service-display-wrapper .row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-box-single-item .icon i {
+    font-size: 2rem; /* Further decrease icon size */
+  }
+
+  .service-display-section h2 {
+    font-size: 1.6rem; /* Smaller heading for very small devices */
+  }
+
+  .service-display-section p {
+    font-size: 0.95rem; /* Smaller paragraph text */
+  }
+
+  .service-box-single-item {
+    padding: 12px; /* Adjust padding for very small screens */
+  }
+}
+
+.left-aligned-heading {
+  text-align: left;
+}
+
+/* General Footer Styles */
+.site-footer {
+  background-color: #343a40;
+  color: white;
+  padding: 50px 0;
+}
+
+.site-footer__left,
+.site-footer__right {
+  padding: 20px;
+}
+
+.site-footer__left-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.site-footer__item {
+  margin-bottom: 10px;
+}
+
+.site-footer__item h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.site-footer__item a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.site-footer__item a:hover {
+  color: #f1c40f;
+}
+
+.social ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+.social li {
+  margin-right: 15px;
+}
+
+.social a {
+  color: white;
+  font-size: 25px;
+  transition: transform 0.3s ease;
+}
+
+.social a:hover {
+  transform: scale(1.2);
+}
+
+/* Animation (AOS) */
+.aos-animate {
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* Contact Form Styles */
+.site-footer__form {
+  background-color: #282828;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.site-footer__form h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #f1c40f;
+  font-family: "Poppins", sans-serif;
+}
+
+.site-footer__form .form-group label {
+  color: #bbb;
+  font-weight: 500;
+}
+
+.site-footer__form .form-group input,
+.site-footer__form .form-group textarea {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.site-footer__form button {
+  background-color: #f1c40f;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.site-footer__form button:hover {
+  background-color: #d4af37;
+  transform: scale(1.1);
+}
+
+/* Footer on Mobile */
+@media (max-width: 768px) {
+  .site-footer__left-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .site-footer__left,
+  .site-footer__right {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .social ul {
+    justify-content: center;
+  }
+}
+
+section#happy-clients {
+  background-color: #faebd7;
+}
